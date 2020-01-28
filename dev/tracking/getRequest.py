@@ -28,3 +28,10 @@ recordTime=endUTC-startUTC
 print(sleepTime)
 print(recordTime)
 
+#theoratically
+#time.sleep(sleepTime)
+#os.system('Record for {recordTime} -o audio.wav' -f 137100)
+#os.system('noaa-apt audio.wav -r 11025 -o audio.wav')
+#os.system('noaa-apt audio.wav -o photo')
+#upload photo to website
+#REPEAT ENTIRE PROCESS
