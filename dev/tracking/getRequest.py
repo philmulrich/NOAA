@@ -1,3 +1,5 @@
+import time
+from datetime import datetime
 import json
 import requests
 satID=input("NORAD ID: ")
@@ -10,8 +12,19 @@ minAlt=input("Minimum MaxAltitude in Degrees: ")
 r=requests.get(tle+satID+apiKey)
 tleResponse=r.content
 r=requests.get(radioPasses+satID+coords+days+'/'+minAlt+'/'+apiKey)
-passResponse=r.content
-print(passResponse)
+#passResponse=r.content
+#print(passResponse)
+#print('\n\n')
+x=r.json()
 
-
+startUTC=(x['passes'][0]['startUTC'])
+startUTC=int(startUTC)
+endUTC=(x['passes'][0]['endUTC'])
+endUTC=int(endUTC)
+nowUTC=time.time()
+nowUTC=int(nowUTC)
+sleepTime=startUTC-nowUTC
+recordTime=endUTC-startUTC
+print(sleepTime)
+print(recordTime)
 
